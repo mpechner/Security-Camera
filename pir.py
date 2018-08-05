@@ -1,3 +1,6 @@
+# Based on https://maker.pro/raspberry-pi/tutorial/how-to-interface-a-pir-motion-sensor-with-raspberry-pi-gpio
+# just seeing that the PIR works.
+
 import RPi.GPIO as GPIO
 import time
 GPIO.setwarnings(False)
