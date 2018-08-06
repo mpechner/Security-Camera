@@ -1,5 +1,7 @@
 " The parts I like from
 " https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
+
+set nocp
 set ruler
 " No annoying sound on errors
 set noerrorbells
