@@ -12,6 +12,8 @@ The basic coding of sensing motion with a PIR motion sensor that triggers captur
 
 I will be testinmg both the bassic and IR camera. Will test PIR as well as ultrasonic.  Lidar wouild be fun, but those are a bit costly and not sure the Pi has the power to make it go.
 
+![Adafruit cobbler](https://github.com/mpechner/Security-Camera/wiki/images/prototype.jpg)
+
 # First Pass 8/5/2018
 Prototype Done.  Probably spent more time working on the wiki than coding.  I did waste time not knowing the Pi IR camera has a different setup. My first systemd service.  I'm an old school init.d guy.  AWS Linux has not forced the issue yet and I still have most Centos 6 systems.
 
