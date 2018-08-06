@@ -10,7 +10,7 @@ With a PIR sensor, a Raspbery Pi camera and using a private AWS S3 bucket, I cap
 
 The basic coding of sensing motion with a PIR motion sensor that triggers capturing images or videos with the camera is easy.  Pushing the images to S3 is a nice add.
 
-I will be testinmg both the bassic and IR camera. Will test PIR as well as ultrasonic.  Lidar wouild be fun, but those are a bit costly and not sure the Pi has the power to make it go.
+I will be testing both the bassic and IR camera. Will test PIR as well as ultrasonic.  Lidar wouild be fun, but those are a bit costly and not sure the Pi has the power to make it go.
 
 ![Prototype](https://github.com/mpechner/Security-Camera/wiki/images/prototype.jpg)
 
