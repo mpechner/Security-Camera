@@ -14,6 +14,13 @@ I will be testing both the bassic and IR camera. Will test PIR as well as ultras
 
 ![Prototype](https://github.com/mpechner/Security-Camera/wiki/images/prototype.jpg)
 
+# Fast & Dirty for the impatient and knowledgeable
+* setup AWS Credentials
+* PIR output is off pin 11 by default.
+* enable the camera
+* copy security-camera.py where you want it.  Make it executable.
+* copy security-camera.service to /etc/systemd/system.  Edit it to point your S3 bucket. enable, start, reload.
+
 # First Pass 8/5/2018
 Prototype Done.  Probably spent more time working on the wiki than coding.  I did waste time not knowing the Pi IR camera has a different setup. My first systemd service.  I'm an old school init.d guy.  AWS Linux has not forced the issue yet and I still have most Centos 6 systems.
 
