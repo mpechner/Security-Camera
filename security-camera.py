@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import boto3
 import os
 import datetime
@@ -8,15 +9,26 @@ import time
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--awsprofile", default="default", help="profile from ~/.aws/credentials to use")
 parser.add_argument("--cameraname", default="camera1", help="name the camera, files will be uploaded to a folder containing this name")
-parser.add_argument("--bucket", default="mikey.com-security", help="S3 bucket name")
+parser.add_argument("--bucket", required=True, help="S3 bucket name. Required")
 parser.add_argument("--imagepath", default="/mnt/cameraimages/images", help="locatioon where images are to be written")
 args = parser.parse_args()
 
 cameraname=args.cameraname
 bucket=args.bucket
 imagepath=args.imagepath
+
+# GPIO setup 
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(11, GPIO.IN)         #Read output from PIR motion sensor
+
+# init camera
+camera = PiCamera()
+
+# make sure initial path exists
+if not os.path.exists(imagepath + '/' + cameraname):
+    os.makedirs(imagepath + '/' + cameraname, 0777)
 
 def upload():
     s3 = boto3.resource('s3')
@@ -38,22 +50,14 @@ def waitfor():
     # Based on https://maker.pro/raspberry-pi/tutorial/how-to-interface-a-pir-motion-sensor-with-raspberry-pi-gpio
     # just seeing that the PIR works.
     
-    GPIO.setwarnings(False)
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(11, GPIO.IN)         #Read output from PIR motion sensor
     while True:
         i=GPIO.input(11)
         if i==0:                 #When output from motion sensor is LOW
             time.sleep(0.5)
         elif i==1:               #When output from motion sensor is HIGH
-            print "Intruder detected",i
+            #print "Intruder detected",i
             capture()
             upload()
             time.sleep(0.3)
 
-
-camera = PiCamera()
-
-if not os.path.exists(imagepath + '/' + cameraname):
-    os.makedirs(imagepath + '/' + cameraname, 0777)
 waitfor()
