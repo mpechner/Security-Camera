@@ -1,6 +1,8 @@
 # Security-Camera
 Raspberry Pi AWS S3 Backed Security Camera Project
 
+Read the wiki https://github.com/mpechner/Security-Camera/wiki
+
 # Why and What
 After an odd incident at the house I decided on the need for a security camera.  But do not trust these companies not to leak passwords or have the photos leak. I don't walk around naked, not that ANYONE wants to see that, but I'm not 100% covered either.
 
