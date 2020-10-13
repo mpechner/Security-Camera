@@ -27,3 +27,10 @@ I will be testing both the bassic and IR camera. Will test PIR as well as ultras
 Prototype Done.  Probably spent more time working on the wiki than coding.  I did waste time not knowing the Pi IR camera has a different setup. My first systemd service.  I'm an old school init.d guy.  AWS Linux has not forced the issue yet and I still have most Centos 6 systems.
 
 Still prototype.  I have not soldiered or encased anything yet.
+
+# Second Pass 10/12/2020 on branch VC0706
+* On branch vc0706 I switched to the adafruit jpeg camera, https://www.adafruit.com/product/613.
+* I moved from python2 to python3
+* Will need to "sudo pip3 install adafruit-circuitpython-vc0706"
+* Code is based on https://circuitpython.readthedocs.io/projects/vc0706/en/latest/examples.html
+* Also since I connected the rx/tx to the GPIO pins, set "enable_uart=1" in /boot/config.txt/
